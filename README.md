@@ -1,2 +1,0 @@
-# yapmaps
-Yapmaps Website
