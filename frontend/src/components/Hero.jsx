@@ -55,21 +55,26 @@ export default function Hero() {
 
       {/* Background Grid Container */}
       <div className="absolute inset-0 flex items-center justify-center">
-        <div 
+        <div
           style={{
-            width: '2000px',
-            height: '1125px',
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            /* 
+              This centers the grid on the screen’s midpoint, 
+              then rotates it 12 degrees. 
+            */
+            transform: 'translate(-50%, -50%) rotate(12deg)',
+
             display: 'grid',
             gridTemplateColumns: 'repeat(4, 1fr)',
             gridTemplateRows: 'repeat(4, 1fr)',
-            gap: '16px',
-            padding: '12px',
-            transform: 'rotate(12deg)',
-            position: 'absolute',
-            left: '50%',
-            top: '50%',
-            marginLeft: '-1000px',
-            marginTop: '-562.5px',
+            gap: '20px',
+            padding: '16px',
+
+            // Make the grid pretty large so edges go off-screen
+            width: '2200px',
+            height: '1325px',
           }}
         >
           {mapImages.map((src, index) => (
@@ -84,9 +89,7 @@ export default function Hero() {
                 transition: 'opacity 0.5s cubic-bezier(0.25, 0.1, 0.25, 1), transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)',
               }}
             >
-              <div
-                className="absolute inset-0 rounded-3xl overflow-hidden"
-              >
+              <div className="absolute inset-0 rounded-3xl overflow-hidden">
                 <img
                   src={src}
                   alt={`Fortnite Map ${index + 1}`}
@@ -99,7 +102,7 @@ export default function Hero() {
       </div>
 
       {/* Content Overlay */}
-      <div 
+      <div
         className="relative z-20 container mx-auto px-4 h-full flex flex-col items-center justify-center"
         style={{
           opacity: contentOpacity,
